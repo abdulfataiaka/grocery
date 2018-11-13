@@ -1,0 +1,39 @@
+$brand-color: #33C3F0;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.align {
+  display: block;
+  width: 90%;
+  margin:0 auto;
+}
+
+#header {
+  display: block;
+  width: 100%;
+  height:60px;
+  overflow: hidden;
+  background: $brand-color;
+  box-shadow: 0 2px 4px lightgray;
+
+  .align {
+    margin-top: 10px;
+
+    img {
+      display: inline-block;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    #page-name {
+      display: inline-block;
+      margin: 6px 0 0 15px;
+      color: white;
+      font-size: 20px;
+      font-weight: 200; 
+    }
+  }
+}
