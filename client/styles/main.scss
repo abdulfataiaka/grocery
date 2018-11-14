@@ -1,4 +1,20 @@
-$brand-color: #33C3F0;
+$brand-blue: #33C3F0;
+$brand-green: #5fba7d;
+$brand-lgray: #E8E8E8;
+$brand-gray: gray;
+$brand-red : red;
+
+@mixin heightify($height) {
+  display: block;
+  width: 100%;
+  height: $height;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html, body, #react-app,  #wrapper {
+  @include heightify(100%);
+}
 
 * {
   margin: 0;
@@ -11,29 +27,50 @@ $brand-color: #33C3F0;
   margin:0 auto;
 }
 
-#header {
+.field-heading {
   display: block;
-  width: 100%;
-  height:60px;
-  overflow: hidden;
-  background: $brand-color;
-  box-shadow: 0 2px 4px lightgray;
+  margin: 10px 0 20px;
 
-  .align {
-    margin-top: 10px;
-
-    img {
-      display: inline-block;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    #page-name {
-      display: inline-block;
-      margin: 6px 0 0 15px;
-      color: white;
-      font-size: 20px;
-      font-weight: 200; 
-    }
+  .title {
+    font-size: 20px;
+    font-weight: 200;
+    color: $brand-blue;
   }
+}
+
+.fset {
+  display: block;
+
+  label {
+    display: block;
+    margin:0 auto 5px;
+    font-size: 11px;
+    font-weight: 400;
+    color: $brand-gray;
+    text-transform: uppercase;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid $brand-lgray;
+    outline: none;
+    font-size: 15px;
+    font-weight: 100;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+}
+
+.actico {
+  display: inline-block;
+  background: $brand-lgray;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: $brand-gray;
+  outline: none!important;
+  font-size: 14px;
+  cursor: pointer;
 }

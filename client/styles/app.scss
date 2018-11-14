@@ -1,0 +1,308 @@
+@import './main.scss';
+
+header {
+  display: block;
+  width: 100%;
+  height:60px;
+  overflow-x: hidden;
+  background: $brand-blue;
+  box-shadow: 0 2px 4px lightgray;
+
+  .align {
+    margin-top: 10px;
+    width: 88%;
+
+    img {
+      display: inline-block;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    #page-name {
+      display: inline-block;
+      margin: 6px 0 0 15px;
+      color: white;
+      font-size: 20px;
+      font-weight: 200; 
+    }
+
+    #add-btn-wrapper {
+      display: inline-block;
+      margin: 3px 0 0 15px;
+
+      #add-btn {
+        display: inline-block;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 3px;
+        background: $brand-green;
+        text-align: center;
+        border: 1px solid green;
+        outline: none;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: 100; 
+
+        i {
+          margin-right: 3px;
+        }
+      }
+
+      #add-modal {
+        display: block;
+        position: absolute;
+        background: white;
+        min-height: 100px;
+        width: 300px;
+        z-index: 51;
+        top: 60px;
+        right: 6%;
+        padding: 10px 20px 20px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        .actico {
+          &:nth-child(2) {
+            margin-left: 15px;
+          }
+        }
+      }      
+    }
+  }
+}
+
+footer {
+  display: block;
+  width: 100%;
+  background: $brand-lgray;
+  bottom: 0;
+  min-height: 80px;
+  max-height: 80px;
+  overflow: hidden;
+
+  span{
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 200;
+  }
+}
+
+#view-content {
+  display: block;
+  width: 100%;
+  position: relative;
+  min-height: calc(100% - 140px);
+  overflow: hidden;
+
+  #emtpy-store {
+    img {
+      display: block;
+      height: 150px;
+      margin: 12% auto 0;
+    }
+
+    p {
+      display: block;
+      font-size: 30px;
+      font-weight: 200;
+      text-align: center;
+      color: $brand-gray;
+    }
+  }
+
+  #page-overlay {
+    display: block;
+    background: black;
+    position: absolute;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+  }
+
+  .grocery-box {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 285px;
+    margin:0 auto 50px;
+    border: 1px solid $brand-lgray;
+    box-shadow: 0 2px 8px $brand-lgray;
+    border-radius: 3px;
+    overflow: hidden;
+
+    .loader-overlay, .edit-overlay {
+      display: block;
+      position: absolute;
+      top: 0; left:0;
+      width: 100%;
+      height: 100%;
+    }
+
+    // z-index 20 - 29
+    .loader-overlay{
+      z-index: 22;
+
+      .overlay {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        background: white;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+      }
+
+      .content {
+        display: block;
+        position: absolute;
+        z-index: 21;
+        width: 90%;
+        height: 94%;
+        top: 3%; left:5%;
+
+        .main { 
+          display: block;
+          background: white;
+          margin: 0 auto;
+          padding-top: 30px;
+
+          img {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+          }
+
+          .text {
+            display: block;
+            font-size: 25px;
+            font-weight: 200;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    // z-index 10 - 19
+    .edit-overlay {
+      z-index: 12;
+
+      .overlay {
+        display: block;
+        position: absolute;
+        z-index: 10;
+        background: white;
+        width: 100%;
+        height: 100%;
+      }
+
+      .content {
+        display: block;
+        position: absolute;
+        z-index: 11;
+        width: 90%;
+        height: 94%;
+        top: 3%; left:5%;
+
+        .field-heading {
+          .actico {
+            margin-left: 8px;
+            margin-top: 0px;
+            font-size: 12px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            color: white;
+            
+            &:nth-child(2) {
+              background: $brand-green;
+            }
+
+            &:nth-child(3) {
+              margin-left: 0;
+              background: $brand-red;
+            }
+          }
+        }
+      }
+    }
+
+    $image-height: 160px;
+
+    .img-box{
+      display: block;
+      width: 90%;
+      margin: 10px auto 0;
+      height: $image-height;
+      border-radius: 3px;
+      overflow: hidden;
+      border-bottom: 4px solid $brand-blue;
+
+      img {
+        display: block;
+        width: 100%;
+        min-height: $image-height;
+      }
+    }
+
+    .base-desc {
+      display: block;
+      width: 85%;
+      margin:20px auto 15px;
+
+      .top {
+        display: block;
+        
+        .title {
+          display: inline-block;
+          font-size: 18px;
+          font-weight: 100;
+          color: $brand-gray;
+        }
+
+        .price {
+          display: inline-block;
+          font-size: 20px;
+          margin-top: -4px;
+          font-weight: 200;
+          color: $brand-green;
+        }
+      }
+
+      .bottom {
+        display: block;
+        margin-top: 20px;
+
+        .purchase-btn {
+          display: inline-block;
+          font-size: 13px;
+          font-weight: 100;
+          padding: 5px 15px;
+          border: none;
+          background: $brand-blue;
+          color: white;
+          border-radius: 2px;
+          outline: none;
+          cursor: pointer;
+
+          &.disabled {
+            background: $brand-lgray;
+            color: $brand-gray;
+          }
+        }
+
+        .actico {
+          margin-left: 15px;
+          margin-right: -3px;
+          margin-top: -3px;
+
+          &.last {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
