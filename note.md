@@ -17,6 +17,8 @@ Node
 Express
 MongoDB
 Mongoose
+Jasmine
+SuperTest
 
 
 Features
