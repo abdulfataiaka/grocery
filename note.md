@@ -31,22 +31,18 @@ Features
 - Searching for groceries
 
 Things to do
-------------------------------
+--------------------------------
 
-- Complete UI (PR)
-- Complete API for get, add, delete, edit. (PR)
-- Connect UI with API endpoint (PR)
+- Implement error handling for edit and add groceries
+
 - Connect to travis
 - Setup enzyme with jasmine for testing
 - Setup jasmine with a reporter (instanbul)
+
 - Write example test to test CI (PR)
-- Write tests for all implementations (front and server) (PR for each side)
-- Setup End to End testing with selinium and jasmine
-- Implement End-to-End testing for implementations (PR)
 
-- Add implementation for search (PR)
-- Write test for search imelementation (PR)
-- Implement End-to-End testing for search (PR)
+- Write component test
+- Write server controller tests
 
-- Deploy application to !(Heroku|NOW)
+- Deploy application to NOW
 

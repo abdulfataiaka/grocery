@@ -4,7 +4,23 @@ import PropTypes from 'prop-types';
 import GroceryItemView from './GroceryItemView';
 import { setShowEditGrocery, setPurchaseStatus, deleteGrocery } from '../../actions/groceryAction';
 
+/**
+ *
+ * 
+ * @description GroceryItem Cpmponent
+ *
+ * @name GroceryItem
+ * 
+ * @extends {Component}
+ */
 class GroceryItem extends Component {
+  /**
+   * @description Creates an instance of GroceryItem.
+   * 
+   * @param { Object } props
+   * 
+   * @memberof GroceryItem
+   */
   constructor(props) {
     super(props);
 
@@ -13,23 +29,77 @@ class GroceryItem extends Component {
     }
   }
 
+  /**
+   *
+   * 
+   * @description Handle edit button click
+   *
+   * @memberof GroceryItem
+   */
   editClickHandler = () => {
-    const { grocery: { id } } = this.props;
-    this.props.setShowEditGrocery(id);
+    const { grocery: { _id } } = this.props;
+    this.props.setShowEditGrocery(_id);
   }
 
+  /**
+   *
+   * 
+   * @description Handle edit view close
+   *
+   * @memberof GroceryItem
+   */
   editCloseHandler = () => {
     this.props.setShowEditGrocery(null);
   }
 
-  purchaseClickHandler = () => {
-    const { id, purchased } = this.props.grocery;
-    this.props.setPurchaseStatus(id, !purchased);
+  /**
+   *
+   * 
+   * @description Update loader status
+   *
+   * @param { Boolean } status
+   * 
+   * @memberof GroceryItem
+   */
+  setLoaderStatus = (status) => {
+    this.setState({ showLoader: status });
   }
 
+  /**
+   *
+   * 
+   * @description Handle purchase button click
+   *
+   * @memberof GroceryItem
+   */
+  purchaseClickHandler = () => {
+    const { _id, purchased } = this.props.grocery;
+    this.setState({ showLoader: true });
+
+    this.props.setPurchaseStatus(_id, !purchased)
+      .then(() => {
+        this.setState({ showLoader: false });
+      })
+      .catch(() => {
+        this.setState({ showLoader: false });
+      });
+  }
+
+  /**
+   *
+   * 
+   * @description Handle delete button click
+   *
+   * @memberof GroceryItem
+   */
   deleteClickHandler = () => {
-    const { grocery: { id } } = this.props;
-    this.props.deleteGrocery(id);
+    const { grocery: { _id } } = this.props;
+    this.setState({ showLoader: true });
+
+    this.props.deleteGrocery(_id)
+      .catch(() => {
+        this.setState({ showLoader: false });
+      });
   }
 
   render() {
@@ -39,12 +109,13 @@ class GroceryItem extends Component {
     return (
       <GroceryItemView
         grocery={grocery}
-        showEdit={editShowGroceryId === grocery.id}
+        showEdit={editShowGroceryId === grocery._id}
         showLoader={showLoader}
         editClickHandler={this.editClickHandler}
         editCloseHandler={this.editCloseHandler}
         purchaseClickHandler={this.purchaseClickHandler}
         deleteClickHandler={this.deleteClickHandler}
+        setLoaderStatus={this.setLoaderStatus}
       />
     );
   }

@@ -10,7 +10,8 @@ const GroceryItemView = ({
   editClickHandler,
   editCloseHandler,
   purchaseClickHandler,
-  deleteClickHandler
+  deleteClickHandler,
+  setLoaderStatus
 }) => (
   <div className="grocery-box">
     <GroceryLoader show={showLoader} />
@@ -19,6 +20,7 @@ const GroceryItemView = ({
       grocery={grocery}
       show={showEdit}
       editCloseHandler={editCloseHandler}
+      setLoaderStatus={setLoaderStatus}
     />
 
     <div className="img-box">
@@ -67,7 +69,8 @@ GroceryItemView.propTypes = {
   editClickHandler: PropTypes.func.isRequired,
   editCloseHandler: PropTypes.func.isRequired,
   purchaseClickHandler: PropTypes.func.isRequired,
-  deleteClickHandler: PropTypes.func.isRequired
+  deleteClickHandler: PropTypes.func.isRequired,
+  setLoaderStatus: PropTypes.func.isRequired
 }
 
 export default GroceryItemView;

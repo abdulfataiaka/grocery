@@ -3,14 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import createStore from './store';
+import { fetchGroceries } from './actions/groceryAction';
 
 const store = createStore({});
-
-//++ retain only for development
-console.log(store.getState());
-store.subscribe(() => {
-  console.log(store.getState());
-});
+store.dispatch(fetchGroceries());
 
 const appDomNode = document.getElementById('react-app');
 ReactDOM.render(

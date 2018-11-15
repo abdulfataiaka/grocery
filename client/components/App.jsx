@@ -12,12 +12,8 @@ const App = ({ showAddNewGroceryModal }) => (
     <Header />
     
     <div id="view-content">
-      {
-        showAddNewGroceryModal && (
-          <div id="page-overlay"></div>
-        )
-      }
-
+      { showAddNewGroceryModal && <div id="page-overlay"></div> }
+      
       <div className="align mt-5">
         <GroceryList />
       </div>

@@ -1,104 +1,59 @@
 import {
-  SET_PURCHASE_STATUS,
-  EDIT_GROCERY_SUCCESS,
+  SET_PURCHASE_STATUS_SUCCESS,
+  SET_PURCHASE_STATUS_FAILURE,
+  FETCH_GROCERIES_SUCCESS,
+  FETCH_GROCERIES_FAILURE,
   DELETE_GROCERY_SUCCESS,
+  DELETE_GROCERY_FAILURE,
+  EDIT_GROCERY_SUCCESS,
+  EDIT_GROCERY_FAILURE,
   ADD_GROCERY_SUCCESS
 } from '../actions/types';
 
-const initialState = [
-  {
-    id: 1,
-    name: 'Melon',
-    purchased: true,
-    price: '$5',
-    image: '/images/groceries/2.jpg'
-  },
-
-  {
-    id: 2,
-    name: 'Water Melon',
-    price: '$8',
-    purchased: false,
-    image: '/images/groceries/1.jpg'
-  },
-
-  {
-    id: 3,
-    name: 'Vegetables',
-    purchased: true,
-    price: '$10',
-    image: '/images/groceries/3.jpg'
-  },
-
-  {
-    id: 4,
-    name: 'Tomatoes',
-    purchased: false,
-    price: '$15',
-    image: '/images/groceries/4.jpg'
-  },
-  {
-    id: 5,
-    name: 'Pepper',
-    purchased: false,
-    price: '$15',
-    image: '/images/groceries/5.jpg'
-  },
-  {
-    id: 6,
-    name: 'Starburst',
-    purchased: false,
-    price: '$15',
-    image: '/images/groceries/6.jpg'
-  },
-  {
-    id: 7,
-    name: 'Potatoes',
-    purchased: false,
-    price: '$15',
-    image: '/images/groceries/7.jpg'
-  },
-  {
-    id: 8,
-    name: 'Ground Turkey',
-    purchased: false,
-    price: '$15',
-    image: '/images/groceries/8.jpg'
-  }
-];
-
-export default (state=initialState, action) => {
+export default (state=[], action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case SET_PURCHASE_STATUS: return (
+    case FETCH_GROCERIES_SUCCESS: return [
+      ...payload
+    ];
+
+    case FETCH_GROCERIES_FAILURE: return state;
+
+    case SET_PURCHASE_STATUS_SUCCESS: return (
       state.map(grocery => {
         const alterable = { ...grocery };
 
-        if (alterable.id === payload.groceryId) {
+        if (alterable._id === payload.groceryId) {
           alterable.purchased = payload.status;
         }
         
         return alterable;
       })
     );
+    
+    case SET_PURCHASE_STATUS_FAILURE: return state;
 
     case EDIT_GROCERY_SUCCESS: return (
       state.map(grocery => {
         let alterable = { ...grocery };
 
-        if (alterable.id === payload.id) {
+        if (alterable._id === payload._id) {
           alterable = { ...alterable, ...payload }
         }
-        
+
         return alterable;
       })
     );
 
+    case EDIT_GROCERY_FAILURE: return state;
+
     case DELETE_GROCERY_SUCCESS: return (
-      state.filter(grocey => grocey.id !== payload)
+      state.filter(grocey => grocey._id !== payload)
     );
-      
+    
+    case  DELETE_GROCERY_FAILURE: return state;
+
     case ADD_GROCERY_SUCCESS: return [
       { ...payload }, ...state
     ];

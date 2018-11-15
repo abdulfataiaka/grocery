@@ -2,9 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EditGroceryView from './EditGroceryView';
-import { editGrocery } from '../../actions/groceryAction';
+import { editGrocery, setShowEditGrocery } from '../../actions/groceryAction';
 
+/**
+ *
+ *
+ * @description EditGrocery Component
+ * 
+ * @name EditGrocery
+ * 
+ * @extends {Component}
+ */
 class EditGrocery extends Component {
+  /**
+   * @description Creates an instance of EditGrocery
+   * 
+   * @param { Object } props
+   * 
+   * @memberof EditGrocery
+   */
   constructor(props) {
     super(props);
 
@@ -13,6 +29,15 @@ class EditGrocery extends Component {
     }
   }
 
+  /**
+   *
+   * 
+   * @description Handle action after update
+   * 
+   * @param { Object } prevProps
+   *
+   * @memberof EditGrocery
+   */
   componentDidUpdate(prevProps) {
     const { editShowGroceryId: oldShowId } = prevProps;
     const { grocery, editShowGroceryId: newShowId } = this.props;
@@ -22,6 +47,15 @@ class EditGrocery extends Component {
     }
   }
 
+  /**
+   *
+   * 
+   * @description Handle fields change
+   * 
+   * @param { Object } event
+   *
+   * @memberof EditGrocery
+   */
   onChangeHandler = (event) => {
     const { grocery } = this.state;
     const { target: { name, value } } = event;
@@ -34,17 +68,37 @@ class EditGrocery extends Component {
     });
   }
 
+  /**
+   *
+   * 
+   * @description Handle form submit
+   * 
+   * @param { Object } event
+   *
+   * @memberof EditGrocery
+   */
   onSubmitHandler = (event) => {
     event.preventDefault();
-    if(!this.detailsChanged()) {
-      console.log('No changes has been made');
-    }
+    if(!this.detailsChanged()) return;
 
-    else {
-      this.props.editGrocery(this.state.grocery);
-    }
+    this.props.setLoaderStatus(true);
+    this.props.editGrocery(this.state.grocery)
+      .then(() => {
+        this.props.setLoaderStatus(false);
+      })
+      .catch(() => {
+        this.props.setLoaderStatus(false);
+      });
+    this.props.setShowEditGrocery(null);
   }
 
+  /**
+   *
+   * 
+   * @description Check if details did change
+   *
+   * @memberof EditGrocery
+   */
   detailsChanged = () => {
     const { grocery: stateGrocery } = this.state;
     const { grocery: propsGrocery } = this.props;
@@ -76,11 +130,13 @@ EditGrocery.propTypes = {
   grocery: PropTypes.shape({}).isRequired,
   show: PropTypes.bool.isRequired,
   editCloseHandler: PropTypes.func.isRequired,
+  setLoaderStatus: PropTypes.func.isRequired,
   editShowGroceryId: PropTypes.any
 }
 
 const mapDispatchToProps = {
-  editGrocery
+  editGrocery,
+  setShowEditGrocery
 };
 
 const mapStateToProps = ({ global }) => ({
