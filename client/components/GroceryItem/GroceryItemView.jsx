@@ -11,7 +11,7 @@ const GroceryItemView = ({
   editCloseHandler,
   purchaseClickHandler,
   deleteClickHandler,
-  setLoaderStatus
+  setLoaderStatus,
 }) => (
   <div className="grocery-box">
     <GroceryLoader show={showLoader} />
@@ -24,7 +24,7 @@ const GroceryItemView = ({
     />
 
     <div className="img-box">
-      <img src={grocery.image} />
+      <img src={grocery.image} alt="" />
     </div>
 
     <div className="base-desc">
@@ -36,7 +36,7 @@ const GroceryItemView = ({
       <div className="bottom clearfix">
         <button
           type="button"
-          className={`purchase-btn float-left ${ grocery.purchased && 'disabled'}`}
+          className={`purchase-btn float-left ${grocery.purchased && 'disabled'}`}
           onClick={purchaseClickHandler}
         >
           { grocery.purchased ? 'Purchased' : 'Purchase' }
@@ -47,7 +47,7 @@ const GroceryItemView = ({
           className="actico float-right"
           onClick={deleteClickHandler}
         >
-          <i className="fas fa-trash"></i>
+          <i className="fas fa-trash" />
         </button>
 
         <button
@@ -55,7 +55,7 @@ const GroceryItemView = ({
           className="actico last float-right"
           onClick={editClickHandler}
         >
-          <i className="fas fa-edit"></i>
+          <i className="fas fa-edit" />
         </button>
       </div>
     </div>
@@ -70,7 +70,7 @@ GroceryItemView.propTypes = {
   editCloseHandler: PropTypes.func.isRequired,
   purchaseClickHandler: PropTypes.func.isRequired,
   deleteClickHandler: PropTypes.func.isRequired,
-  setLoaderStatus: PropTypes.func.isRequired
-}
+  setLoaderStatus: PropTypes.func.isRequired,
+};
 
 export default GroceryItemView;

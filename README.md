@@ -3,14 +3,16 @@ A simple grocery listing application with React, Redux, ExpressJS and MongoDB
 
 ## Getting started
 
-To run the application on your local machine, ensure you have `NodeJS +v8.12.0` and `NPM +v6.4.1` installed and follow the steps below to run the application.
+To run the application on your local machine, ensure you have `NodeJS +v8.12.0`, `Bower` and `NPM +v6.4.1` installed and follow the steps below to run the application.
 ```console
 
-$ git clone https://github.com/abdulfataiaka/react-quiz.git
+$ git clone https://github.com/abdulfataiaka/grocery-v2.git
 
-$ yarn install
+$ npm install
 
-$ yarn start
+$ bower install
+
+$ npm dev:start
 
 ```
 
@@ -18,17 +20,19 @@ $ yarn start
 
 Test suites has been written to guard against regression and ensure implementations don't break at any point in time.
 
-Run the tests using the command below, if `jest` has been installed local to the project
+Run the tests using the commands below to run client and server tests individually
 ```console
 
-$ yarn test
+$ npm run client:test
+
+$ npm run server:test
 
 ```
 
-Otherwise, run the below command if `jest` has been installed globally
+Or, run both with one command
 ```console
 
-$ jest
+$ npm test
 
 ```
 
@@ -40,7 +44,8 @@ The below list includes technologies put together to build this application
 - [SCSS](https://sass-lang.com/)
 - [Enzyme](http://airbnb.io/enzyme/)
 - [Babel Compiler](https://babeljs.io/docs/)
-- [Jest Testing Framework](https://jestjs.io/)
+- [Jasmine - Client](https://jasmine.github.io/)
+- [Mocha - Server](https://mochajs.org/)
 - [Roboto Google Font](https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700)
 - [Javascript Extension](https://reactjs.org/docs/introducing-jsx.html)
 - [Font Awesome](https://fontawesome.com/icons)
@@ -48,7 +53,7 @@ The below list includes technologies put together to build this application
 - [Eslint Javascript Linter](https://eslint.org/)
 
 ## Continous Integration
-- [Travis CI](https://travis-ci.org/abdulfataiaka/react-quiz)
+- [Travis CI](https://travis-ci.org/abdulfataiaka/grocery-v2)
 - [Code Climate](https://codeclimate.com/)
 
 ## Deployment
@@ -56,21 +61,21 @@ The below list includes technologies put together to build this application
 This quiz application has been deployed on `NOW`, to host your own versions of the application from your local machine, install `NOW` with yarn globally.
 ```console
 
-$ yarn global add now
+$ npm install --global now
 
 ```
 
-See all deployed instances of `react-quiz` app
+See all deployed instances of `grocery-v2` app
 ```console
 
-$ now list react-quiz
+$ now list grocery-v2
 
 ```
 
-To remove the deployed instances for `react-quiz` app
+To remove the deployed instances for `grocery-v2` app
 ```console
 
-$ now remove react-quiz
+$ now remove grocery-v2
 
 ```
 

@@ -5,13 +5,9 @@ import HeaderView from './HeaderView';
 import { setAddModalState, addGrocery } from '../../actions/groceryAction';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
   /**
    *
-   * 
+   *
    * @description Handle open add modal
    *
    * @memberof GroceryItem
@@ -22,7 +18,7 @@ class Header extends Component {
 
   /**
    *
-   * 
+   *
    * @description Handle close add modal
    *
    * @memberof GroceryItem
@@ -32,14 +28,14 @@ class Header extends Component {
   }
 
   render() {
-    const { showAddNewGroceryModal, addGrocery } = this.props;
+    const { showAddNewGroceryModal } = this.props;
 
     return (
       <HeaderView
         showAddNewGroceryModal={showAddNewGroceryModal}
         addModalBtnClick={this.openAddGroceryModal}
         closeAddGroceryModal={this.closeAddGroceryModal}
-        addGrocery={addGrocery}
+        addGrocery={this.props.addGrocery}
       />
     );
   }
@@ -48,16 +44,16 @@ class Header extends Component {
 Header.propTypes = {
   showAddNewGroceryModal: PropTypes.bool.isRequired,
   setAddModalState: PropTypes.func.isRequired,
-  addGrocery: PropTypes.func.isRequired
-}
+  addGrocery: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   setAddModalState,
-  addGrocery
+  addGrocery,
 };
 
 const mapStateToProps = ({ global }) => ({
-  showAddNewGroceryModal: global.showAddNewGroceryModal
+  showAddNewGroceryModal: global.showAddNewGroceryModal,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

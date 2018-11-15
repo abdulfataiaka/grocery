@@ -10,10 +10,10 @@ import '../styles/app.scss';
 const App = ({ showAddNewGroceryModal }) => (
   <div id="wrapper">
     <Header />
-    
+
     <div id="view-content">
-      { showAddNewGroceryModal && <div id="page-overlay"></div> }
-      
+      { showAddNewGroceryModal && <div id="page-overlay" /> }
+
       <div className="align mt-5">
         <GroceryList />
       </div>
@@ -24,11 +24,11 @@ const App = ({ showAddNewGroceryModal }) => (
 );
 
 const mapStateToProps = ({ global }) => ({
-  showAddNewGroceryModal: global.showAddNewGroceryModal
+  showAddNewGroceryModal: global.showAddNewGroceryModal,
 });
 
 App.propTypes = {
-  showAddNewGroceryModal: PropTypes.bool.isRequired
-}
+  showAddNewGroceryModal: PropTypes.bool.isRequired,
+};
 
 export default connect(mapStateToProps, null)(App);

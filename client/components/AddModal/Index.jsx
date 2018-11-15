@@ -4,24 +4,24 @@ import ManageGrocery from '../ManageGrocery/Index';
 import GroceryLoader from '../GroceryLoader/Index';
 
 /**
- * 
- * 
+ *
+ *
  * @description Add Modal Component
- * 
+ *
  * @name AddModal
  */
 class AddModal extends Component {
   static initialGrocery = {
     name: '',
     price: '',
-    image: ''
+    image: '',
   }
 
   /**
    * @description Creates an instance of AddModal.
-   * 
+   *
    * @param { Object } props
-   * 
+   *
    * @memberof AddModal
    */
   constructor(props) {
@@ -30,16 +30,16 @@ class AddModal extends Component {
     this.state = {
       showLoader: false,
       grocery: {
-        ...AddModal.initialGrocery
-      }
-    }
+        ...AddModal.initialGrocery,
+      },
+    };
   }
 
   /**
    *
-   * 
+   *
    * @description Handle form submit
-   * 
+   *
    * @param { Object } event
    *
    * @memberof AddModal
@@ -55,32 +55,31 @@ class AddModal extends Component {
       .catch(() => {
         this.setState({ showLoader: false });
       });
-    
   }
 
   /**
    *
-   * 
+   *
    * @description Handle fields change
-   * 
+   *
    * @param { Object } event
    *
    * @memberof AddModal
    */
   onChangeHandler = (event) => {
-    const { target: { name, value }} = event;
+    const { target: { name, value } } = event;
 
     this.setState(({ grocery }) => ({
       grocery: {
         ...grocery,
-        [name]: value
-      }
+        [name]: value,
+      },
     }));
   }
 
   /**
    *
-   * 
+   *
    * @description Handle close modal action
    *
    * @memberof AddModal
@@ -88,8 +87,8 @@ class AddModal extends Component {
   closeModalHandler = () => {
     this.setState({
       grocery: {
-        ...AddModal.initialGrocery
-      }
+        ...AddModal.initialGrocery,
+      },
     });
     this.props.closeAddGroceryModal();
   }
@@ -103,7 +102,7 @@ class AddModal extends Component {
         <div id="add-modal-form">
           <ManageGrocery
             grocery={grocery}
-            title={'New Grocery'}
+            title="New Grocery"
             changeHandler={this.onChangeHandler}
             submitHandler={this.onSubmitHandler}
             closeHandler={this.closeModalHandler}
@@ -115,7 +114,8 @@ class AddModal extends Component {
 }
 
 AddModal.propTypes = {
-  closeAddGroceryModal: PropTypes.func.isRequired
-}
+  closeAddGroceryModal: PropTypes.func.isRequired,
+  addGrocery: PropTypes.func.isRequired,
+};
 
 export default AddModal;

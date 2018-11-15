@@ -7,14 +7,14 @@ const EditGroceryView = ({
   grocery,
   closeHandler,
   changeHandler,
-  submitHandler
+  submitHandler,
 }) => (
-  <div className="edit-overlay" style={{ display: `${show ? 'block' : 'none'}`}}>
-    <div className="overlay"></div>
+  <div className="edit-overlay" style={{ display: `${show ? 'block' : 'none'}` }}>
+    <div className="overlay" />
     <div className="content">
       <ManageGrocery
         grocery={grocery}
-        title={'Edit Grocery'}
+        title="Edit Grocery"
         changeHandler={changeHandler}
         submitHandler={submitHandler}
         closeHandler={closeHandler}
@@ -29,7 +29,7 @@ EditGroceryView.propTypes = {
   show: PropTypes.bool.isRequired,
   closeHandler: PropTypes.func.isRequired,
   changeHandler: PropTypes.func.isRequired,
-  submitHandler: PropTypes.func.isRequired
-}
+  submitHandler: PropTypes.func.isRequired,
+};
 
 export default EditGroceryView;
