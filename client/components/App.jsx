@@ -1,17 +1,38 @@
 import React from 'react';
-import Header from './Header';
-import '../styles/main.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Header from './Header/Index';
+import Footer from './Footer/Index';
+import GroceryList from './GroceryList/Index';
 
-const App = () => (
-  <div>
+import '../styles/app.scss';
+
+const App = ({ showAddNewGroceryModal }) => (
+  <div id="wrapper">
     <Header />
+    
+    <div id="view-content">
+      {
+        showAddNewGroceryModal && (
+          <div id="page-overlay"></div>
+        )
+      }
 
-    <main>
       <div className="align mt-5">
-        <h4>Grocery Store</h4>
+        <GroceryList />
       </div>
-    </main>
+    </div>
+
+    <Footer />
   </div>
 );
 
-export default App;
+const mapStateToProps = ({ global }) => ({
+  showAddNewGroceryModal: global.showAddNewGroceryModal
+});
+
+App.propTypes = {
+  showAddNewGroceryModal: PropTypes.bool.isRequired
+}
+
+export default connect(mapStateToProps, null)(App);

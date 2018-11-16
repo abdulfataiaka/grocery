@@ -6,6 +6,12 @@ import createStore from './store';
 
 const store = createStore({});
 
+//++ retain only for development
+console.log(store.getState());
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
 const appDomNode = document.getElementById('react-app');
 ReactDOM.render(
   <Provider store={store}>
