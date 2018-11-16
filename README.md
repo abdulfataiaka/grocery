@@ -1,4 +1,7 @@
 # Grocery Store Application
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/a193f20da5e01047467e/maintainability)](https://codeclimate.com/github/abdulfataiaka/grocery-v2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a193f20da5e01047467e/test_coverage)](https://codeclimate.com/github/abdulfataiaka/grocery-v2/test_coverage)
+
 A simple grocery listing application with React, Redux, ExpressJS and MongoDB
 
 ## Getting started
@@ -58,31 +61,10 @@ The below list includes technologies put together to build this application
 
 ## Deployment
 
-This quiz application has been deployed on `NOW`, to host your own versions of the application from your local machine, install `NOW` with yarn globally.
-```console
-
-$ npm install --global now
-
+Application has been hosted on `Heroku`, to check it out, visit the url below
 ```
 
-See all deployed instances of `grocery-v2` app
-```console
-
-$ now list grocery-v2
-
-```
-
-To remove the deployed instances for `grocery-v2` app
-```console
-
-$ now remove grocery-v2
-
-```
-
-To deploy application again, checkout to the instance(`branch`) of the app you want to deploy
-```console
-
-$ now deploy
+https://grocery-v2.herokuapp.com/
 
 ```
 

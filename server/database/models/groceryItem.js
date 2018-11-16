@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 const groceryItemSchema = new Schema(
   {
     _id: Number,
     name: String,
     price: String,
     image: String,
-    purchased: Boolean
-  }
+    purchased: Boolean,
+  },
 );
 
 const GroceryItem = mongoose.model('GroceryItem', groceryItemSchema, 'groceryItems');

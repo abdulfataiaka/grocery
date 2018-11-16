@@ -1,20 +1,27 @@
+/* eslint-disable no-console */
+/* eslint-disable global-require */
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import groceryItemsSeeder from './seeders/groceryItems';
 
-const DBHOST = 'localhost';
-const DBPORT = 27017;
-const DBNAME = 'groceries';
-const DBURL = `mongodb://${DBHOST}:${DBPORT}/${DBNAME}`;
+dotenv.config();
+const { MONGODB_URI } = process.env;
 
 const DBInitialize = () => {
-  mongoose.connect(DBURL, { useNewUrlParser: true }, function() {
-    console.log(`Mongoose connected to mongo database on port ${DBPORT}`);
+  mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, () => {
+    console.log('Mongoose connected to mongo database');
+    console.log('[*] Seeding initial database collection documents');
 
-    console.log(`[*] Seeding initial database collection documents`);
-    mongoose.connection.db.dropCollection('groceryItems');
-    mongoose.connection.db.dropCollection('autoCounters');
-    require('./seeders/groceryItems');
-    console.log(`[*] Initial database collection documents seeded`);
+    try {
+      mongoose.connection.db.dropCollection('groceryItems');
+      mongoose.connection.db.dropCollection('autoCounters');
+    } catch (error) {
+      console.log('[*] Mongoose skipping dropping non existing collections');
+    }
+
+    groceryItemsSeeder();
+    console.log('[*] Initial database collection documents seeded');
   });
-}
+};
 
 export default DBInitialize;
