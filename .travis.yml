@@ -14,18 +14,5 @@ env:
 script:
   - npm test
 
-before_deploy:
-  - npm install
-  - npm install -g now
-  - now rm grocery-v2 -y --token $GROCERY_V2_TOKEN || true
-
-deploy:
-  provider: script
-  script: now --token $GROCERY_V2_TOKEN --public
-  skip_cleanup: true
-  on:
-    branch: develop
-    master: true
-
 after_success:
   - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN codeclimate-test-reporter < coverage/lcov.info

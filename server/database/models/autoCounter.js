@@ -1,21 +1,22 @@
+/* eslint-disable no-param-reassign */
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 const autoCounterSchema = new Schema({
   _id: String,
-  lastId: Number
+  lastId: Number,
 }, { _id: false });
 
 const AutoCounter = mongoose.model(
   'AutoCounter',
   autoCounterSchema,
-  'autoCounters'
+  'autoCounters',
 );
 
 
 /**
  *
- * 
+ *
  * @description Get last added id for collection
  *
  * @memberof GroceryItem
@@ -37,12 +38,12 @@ export const getLastId = (collection, callback) => {
 
     callback(null, doc.lastId);
   });
-}
+};
 
 
 /**
  *
- * 
+ *
  * @description update last added id for collection
  *
  * @memberof GroceryItem
@@ -54,9 +55,9 @@ export const setLastId = (collection, lastId, callback) => {
       return;
     }
 
-    if(!doc) {
+    if (!doc) {
       callback({
-        message: 'Collection does not exist'
+        message: 'Collection does not exist',
       }); return;
     }
 
@@ -64,6 +65,6 @@ export const setLastId = (collection, lastId, callback) => {
     doc.save();
     callback(null);
   });
-}
+};
 
 export default AutoCounter;

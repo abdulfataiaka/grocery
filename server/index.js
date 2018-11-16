@@ -14,13 +14,13 @@ const server = express();
 const compiler = webpack(config);
 const routes = apiRouter(express.Router());
 
-//++ initialize database connection
+// ++ initialize database connection
 DBInitialize();
 
-//++ set server configurations
+// ++ set server configurations
 server.set('view engine', 'ejs');
 
-//++ set middlewares to be used by server
+// ++ set middlewares to be used by server
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.static('public'));
@@ -29,7 +29,7 @@ server.use('/bower_components', express.static('bower_components'));
 server.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath,
-  historyApiFallback: true
+  historyApiFallback: true,
 }));
 
 server.use(webpackHotMiddleware(compiler));
