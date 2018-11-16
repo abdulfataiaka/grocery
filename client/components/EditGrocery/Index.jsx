@@ -8,50 +8,52 @@ import { editGrocery, setShowEditGrocery } from '../../actions/groceryAction';
  *
  *
  * @description EditGrocery Component
- * 
+ *
  * @name EditGrocery
- * 
+ *
  * @extends {Component}
  */
 class EditGrocery extends Component {
   /**
    * @description Creates an instance of EditGrocery
-   * 
+   *
    * @param { Object } props
-   * 
+   *
    * @memberof EditGrocery
    */
   constructor(props) {
     super(props);
 
     this.state = {
-      grocery: { ...props.grocery }
-    }
+      grocery: { ...props.grocery },
+    };
   }
 
   /**
    *
-   * 
+   *
    * @description Handle action after update
-   * 
+   *
    * @param { Object } prevProps
    *
    * @memberof EditGrocery
    */
-  componentDidUpdate(prevProps) {
-    const { editShowGroceryId: oldShowId } = prevProps;
-    const { grocery, editShowGroceryId: newShowId } = this.props;
+  shouldComponentUpdate(nextProps) {
+    const { editShowGroceryId: oldShowId } = this.props;
+    const { grocery, editShowGroceryId: newShowId } = nextProps;
 
     if (oldShowId !== newShowId) {
-      this.setState({ grocery: { ...grocery }})
+      this.setState({ grocery: { ...grocery } });
     }
+
+    return true;
   }
 
   /**
    *
-   * 
+   *
    * @description Handle fields change
-   * 
+   *
    * @param { Object } event
    *
    * @memberof EditGrocery
@@ -63,23 +65,23 @@ class EditGrocery extends Component {
     this.setState({
       grocery: {
         ...grocery,
-        [name]: value
-      }
+        [name]: value,
+      },
     });
   }
 
   /**
    *
-   * 
+   *
    * @description Handle form submit
-   * 
+   *
    * @param { Object } event
    *
    * @memberof EditGrocery
    */
   onSubmitHandler = (event) => {
     event.preventDefault();
-    if(!this.detailsChanged()) return;
+    if (!this.detailsChanged()) return;
 
     this.props.setLoaderStatus(true);
     this.props.editGrocery(this.state.grocery)
@@ -94,7 +96,7 @@ class EditGrocery extends Component {
 
   /**
    *
-   * 
+   *
    * @description Check if details did change
    *
    * @memberof EditGrocery
@@ -104,9 +106,9 @@ class EditGrocery extends Component {
     const { grocery: propsGrocery } = this.props;
 
     return (
-      stateGrocery.name.toLowerCase() !== propsGrocery.name.toLowerCase() ||
-      stateGrocery.price !== propsGrocery.price ||
-      stateGrocery.image !== propsGrocery.image
+      stateGrocery.name.toLowerCase() !== propsGrocery.name.toLowerCase()
+      || stateGrocery.price !== propsGrocery.price
+      || stateGrocery.image !== propsGrocery.image
     );
   }
 
@@ -131,17 +133,18 @@ EditGrocery.propTypes = {
   show: PropTypes.bool.isRequired,
   editCloseHandler: PropTypes.func.isRequired,
   setLoaderStatus: PropTypes.func.isRequired,
-  editShowGroceryId: PropTypes.any
-}
+  editShowGroceryId: PropTypes.any,
+  editGrocery: PropTypes.func.isRequired,
+  setShowEditGrocery: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   editGrocery,
-  setShowEditGrocery
+  setShowEditGrocery,
 };
 
 const mapStateToProps = ({ global }) => ({
-  editShowGroceryId: global.editShowGroceryId
+  editShowGroceryId: global.editShowGroceryId,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditGrocery);
-

@@ -6,7 +6,7 @@ const HeaderView = ({
   addModalBtnClick,
   showAddNewGroceryModal,
   closeAddGroceryModal,
-  addGrocery
+  addGrocery,
 }) => (
   <header>
     <div className="align clearfix">
@@ -15,7 +15,7 @@ const HeaderView = ({
 
       <div id="add-btn-wrapper" className="float-right">
         <button onClick={addModalBtnClick} type="button" id="add-btn">
-          <i className="fas fa-plus-circle"></i>
+          <i className="fas fa-plus-circle" />
           <span>Add New</span>
         </button>
 
@@ -34,7 +34,7 @@ HeaderView.propTypes = {
   showAddNewGroceryModal: PropTypes.bool.isRequired,
   closeAddGroceryModal: PropTypes.func.isRequired,
   addModalBtnClick: PropTypes.func.isRequired,
-  addGrocery: PropTypes.func.isRequired
-}
+  addGrocery: PropTypes.func.isRequired,
+};
 
 export default HeaderView;

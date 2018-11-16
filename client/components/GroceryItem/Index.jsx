@@ -6,32 +6,32 @@ import { setShowEditGrocery, setPurchaseStatus, deleteGrocery } from '../../acti
 
 /**
  *
- * 
+ *
  * @description GroceryItem Cpmponent
  *
  * @name GroceryItem
- * 
+ *
  * @extends {Component}
  */
 class GroceryItem extends Component {
   /**
    * @description Creates an instance of GroceryItem.
-   * 
+   *
    * @param { Object } props
-   * 
+   *
    * @memberof GroceryItem
    */
   constructor(props) {
     super(props);
 
     this.state = {
-      showLoader: false
-    }
+      showLoader: false,
+    };
   }
 
   /**
    *
-   * 
+   *
    * @description Handle edit button click
    *
    * @memberof GroceryItem
@@ -43,7 +43,7 @@ class GroceryItem extends Component {
 
   /**
    *
-   * 
+   *
    * @description Handle edit view close
    *
    * @memberof GroceryItem
@@ -54,11 +54,11 @@ class GroceryItem extends Component {
 
   /**
    *
-   * 
+   *
    * @description Update loader status
    *
    * @param { Boolean } status
-   * 
+   *
    * @memberof GroceryItem
    */
   setLoaderStatus = (status) => {
@@ -67,7 +67,7 @@ class GroceryItem extends Component {
 
   /**
    *
-   * 
+   *
    * @description Handle purchase button click
    *
    * @memberof GroceryItem
@@ -87,7 +87,7 @@ class GroceryItem extends Component {
 
   /**
    *
-   * 
+   *
    * @description Handle delete button click
    *
    * @memberof GroceryItem
@@ -123,19 +123,24 @@ class GroceryItem extends Component {
 
 
 GroceryItem.propTypes = {
-  grocery: PropTypes.shape({}).isRequired,
-  editShowGroceryId: PropTypes.any
-}
+  grocery: PropTypes.shape({
+    purchased: PropTypes.bool.isRequired,
+    _id: PropTypes.number.isRequired,
+  }).isRequired,
+  editShowGroceryId: PropTypes.any,
+  setShowEditGrocery: PropTypes.func.isRequired,
+  deleteGrocery: PropTypes.func.isRequired,
+  setPurchaseStatus: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ global }) => ({
-  editShowGroceryId: global.editShowGroceryId
+  editShowGroceryId: global.editShowGroceryId,
 });
 
 const mapDispatchToProps = {
   setShowEditGrocery,
   setPurchaseStatus,
-  deleteGrocery
-}
+  deleteGrocery,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroceryItem);
-

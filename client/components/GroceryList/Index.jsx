@@ -11,7 +11,6 @@ const GroceryList = ({ groceries }) => (
 
 GroceryList.propTypes = {
   groceries: PropTypes.arrayOf(PropTypes.shape({})),
-  editShowGroceryId: PropTypes.any
 };
 
 const mapStateToProps = ({ groceries }) => ({

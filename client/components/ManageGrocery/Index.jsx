@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +8,7 @@ const ManageGrocery = ({
   grocery,
   closeHandler,
   changeHandler,
-  submitHandler
+  submitHandler,
 }) => (
   <form onSubmit={submitHandler}>
     <div className="field-heading clearfix">
@@ -15,7 +17,7 @@ const ManageGrocery = ({
       </span>
 
       <button type="submit" className="actico float-right">
-        <i className="fas fa-check"></i>
+        <i className="fas fa-check" />
       </button>
 
       <button
@@ -23,7 +25,7 @@ const ManageGrocery = ({
         className="actico last float-right"
         onClick={closeHandler}
       >
-        <i className="fas fa-times"></i>
+        <i className="fas fa-times" />
       </button>
     </div>
 
@@ -33,6 +35,7 @@ const ManageGrocery = ({
         type="text"
         value={grocery.name}
         name="name"
+        id="name"
         onChange={changeHandler}
       />
     </div>
@@ -65,7 +68,7 @@ ManageGrocery.propTypes = {
   grocery: PropTypes.shape({}).isRequired,
   changeHandler: PropTypes.func.isRequired,
   submitHandler: PropTypes.func.isRequired,
-  closeHandler: PropTypes.func.isRequired
-}
+  closeHandler: PropTypes.func.isRequired,
+};
 
 export default ManageGrocery;
