@@ -9,7 +9,7 @@ const GroceryListView = ({ groceries }) => (
     <div className="row">
       {
         groceries.map((grocery) => (
-          <div key={grocery.id} className="col-3">
+          <div key={grocery._id} className="col-3">
             <GroceryItem grocery={grocery} />
           </div>
         ))

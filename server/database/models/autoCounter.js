@@ -12,6 +12,14 @@ const AutoCounter = mongoose.model(
   'autoCounters'
 );
 
+
+/**
+ *
+ * 
+ * @description Get last added id for collection
+ *
+ * @memberof GroceryItem
+ */
 export const getLastId = (collection, callback) => {
   AutoCounter.findOne({ _id: collection }, (error, doc) => {
     if (error) {
@@ -32,6 +40,13 @@ export const getLastId = (collection, callback) => {
 }
 
 
+/**
+ *
+ * 
+ * @description update last added id for collection
+ *
+ * @memberof GroceryItem
+ */
 export const setLastId = (collection, lastId, callback) => {
   AutoCounter.findOne({ _id: collection }, (error, doc) => {
     if (error) {

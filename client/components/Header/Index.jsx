@@ -9,10 +9,24 @@ class Header extends Component {
     super(props);
   }
   
+  /**
+   *
+   * 
+   * @description Handle open add modal
+   *
+   * @memberof GroceryItem
+   */
   openAddGroceryModal = () => {
     this.props.setAddModalState(true);
   }
 
+  /**
+   *
+   * 
+   * @description Handle close add modal
+   *
+   * @memberof GroceryItem
+   */
   closeAddGroceryModal = () => {
     this.props.setAddModalState(false);
   }

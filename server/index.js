@@ -45,3 +45,5 @@ server.listen(port, (error) => {
   if (!error) console.log(`[*] Server started on port ${port}\n`);
   else console.log(`[!] Unable to start server on port ${port}\n`);
 });
+
+export default server;
