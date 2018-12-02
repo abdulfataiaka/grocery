@@ -4,7 +4,16 @@
         "no-underscore-dangle": 0,
         "react/destructuring-assignment": 0,
         "react/forbid-prop-types": 0,
-        "react/require-default-props": 0
+        "react/require-default-props": 0,
+        "import/no-extraneous-dependencies": 0,
+        "comma-dangle": 0
+    },
+    "globals": {
+        "describe": true,
+        "it": true,
+        "expect": true,
+        "beforeEach": true,
+        "afterEach": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
