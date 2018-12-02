@@ -32,3 +32,5 @@ export const errorMock = {
 };
 
 export const mockStore = configureStore([thunk]);
+
+export const $fn = () => () => {};

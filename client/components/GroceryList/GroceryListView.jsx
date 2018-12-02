@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GroceryItem from '../GroceryItem/Index';
-import NoGroceries from '../NoGrceries/Index';
+import NoGroceries from '../NoGroceries/Index';
 
 const GroceryListView = ({ groceries }) => (
   !groceries.length
