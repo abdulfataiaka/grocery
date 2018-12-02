@@ -1,6 +1,6 @@
 # Grocery Store Application
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a193f20da5e01047467e/maintainability)](https://codeclimate.com/github/abdulfataiaka/grocery-v2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a193f20da5e01047467e/test_coverage)](https://codeclimate.com/github/abdulfataiaka/grocery-v2/test_coverage)
+[![Build Status](https://travis-ci.org/abdulfataiaka/grocery-v2.svg?branch=develop)](https://travis-ci.org/abdulfataiaka/grocery-v2) [![Maintainability](https://api.codeclimate.com/v1/badges/a193f20da5e01047467e/maintainability)](https://codeclimate.com/github/abdulfataiaka/grocery-v2/maintainability)
 
 A simple grocery listing application with React, Redux, ExpressJS and MongoDB
 

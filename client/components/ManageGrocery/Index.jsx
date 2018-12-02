@@ -52,7 +52,7 @@ const ManageGrocery = ({
         type="text"
         value={grocery.price}
         name="price"
-        placeholder="E.g $5, #50"
+        placeholder="Examples : $5, ₦50"
         onChange={changeHandler}
       />
     </div>
