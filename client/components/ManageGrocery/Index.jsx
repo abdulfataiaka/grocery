@@ -30,7 +30,10 @@ const ManageGrocery = ({
     </div>
 
     <div className="fset">
-      <label>Name</label>
+      <label>
+        Name &nbsp;
+        <span style={{ color: 'red' }}>*</span>
+      </label>
       <input
         type="text"
         value={grocery.name}
@@ -41,17 +44,24 @@ const ManageGrocery = ({
     </div>
 
     <div className="fset">
-      <label>Price</label>
+      <label>
+        Price &nbsp;
+        <span style={{ color: 'red' }}>*</span>
+      </label>
       <input
         type="text"
         value={grocery.price}
         name="price"
+        placeholder="E.g $5, #50"
         onChange={changeHandler}
       />
     </div>
 
     <div className="fset">
-      <label>Image URL</label>
+      <label>
+        Image URL &nbsp;
+        <span style={{ color: 'red' }}>*</span>
+      </label>
       <input
         type="text"
         value={grocery.image}
