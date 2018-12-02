@@ -215,6 +215,7 @@ export const addGrocery = groceryDetails => dispatch => axios.post('/api/groceri
   })
   .catch((error) => {
     dispatch(addGroceryFailure(error));
+    throw error;
   });
 
 
