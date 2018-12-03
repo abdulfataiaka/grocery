@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GroceryListView from './GroceryListView';
 
-const GroceryList = ({ groceries }) => (
+export const GroceryList = ({ groceries }) => (
   <GroceryListView
     groceries={groceries}
   />

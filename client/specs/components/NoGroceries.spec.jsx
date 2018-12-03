@@ -2,19 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
 
-import AddModal from '../../components/AddModal/Index';
-import { $fn } from '../mocks';
+import NoGroceries from '../../components/NoGroceries/Index';
 
-describe('AddModal component', () => {
+describe('NoGroceries component', () => {
   beforeEach(() => {
     jasmineEnzyme();
   });
 
   it('should render component', () => {
-    const wrapper = shallow(<AddModal
-      closeAddGroceryModal={$fn()}
-      addGrocery={$fn()}
-    />);
+    const wrapper = shallow(<NoGroceries />);
     expect(wrapper.length).toBe(1);
   });
 });

@@ -13,7 +13,7 @@ import { setShowEditGrocery, setPurchaseStatus, deleteGrocery } from '../../acti
  *
  * @extends {Component}
  */
-class GroceryItem extends Component {
+export class GroceryItem extends Component {
   /**
    * @description Creates an instance of GroceryItem.
    *

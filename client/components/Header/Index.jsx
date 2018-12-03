@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import HeaderView from './HeaderView';
 import { setAddModalState, addGrocery } from '../../actions/groceryAction';
 
-class Header extends Component {
+export class Header extends Component {
   /**
    *
    *

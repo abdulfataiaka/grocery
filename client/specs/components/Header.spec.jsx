@@ -2,17 +2,35 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
 
-import AddModal from '../../components/AddModal/Index';
+import { Header } from '../../components/Header/Index';
+import HeaderView from '../../components/Header/HeaderView';
 import { $fn } from '../mocks';
 
-describe('AddModal component', () => {
+describe('HeaderView component', () => {
   beforeEach(() => {
     jasmineEnzyme();
   });
 
   it('should render component', () => {
-    const wrapper = shallow(<AddModal
+    const wrapper = shallow(<HeaderView
+      showAddNewGroceryModal
       closeAddGroceryModal={$fn()}
+      addModalBtnClick={$fn()}
+      addGrocery={$fn()}
+    />);
+    expect(wrapper.length).toBe(1);
+  });
+});
+
+describe('Header component', () => {
+  beforeEach(() => {
+    jasmineEnzyme();
+  });
+
+  it('should render component', () => {
+    const wrapper = shallow(<Header
+      showAddNewGroceryModal
+      setAddModalState={$fn()}
       addGrocery={$fn()}
     />);
     expect(wrapper.length).toBe(1);

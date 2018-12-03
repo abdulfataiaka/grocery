@@ -13,7 +13,7 @@ import { editGrocery, setShowEditGrocery } from '../../actions/groceryAction';
  *
  * @extends {Component}
  */
-class EditGrocery extends Component {
+export class EditGrocery extends Component {
   /**
    * @description Creates an instance of EditGrocery
    *
