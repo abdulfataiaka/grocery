@@ -30,7 +30,7 @@ const GroceryItemView = ({
     <div className="base-desc">
       <div className="top clearfix">
         <span className="title float-left">{grocery.name}</span>
-        <span className="price float-right">{grocery.price}</span>
+        <span className="price float-right">{`$${grocery.price}`}</span>
       </div>
 
       <div className="bottom clearfix">

@@ -61,6 +61,37 @@ html, body, #react-app,  #wrapper {
     border-radius: 2px;
     margin-bottom: 10px;
   }
+
+  .price-group {
+    border: 1px solid #E8E8E8;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  
+    span {
+      float: left;
+      width: 15%;
+      height: 36px;
+      text-align: center;
+      color: gray;
+      padding-top: 4px;
+      background: #E8E8E8;
+    }
+  
+    input {
+      float: right;
+      width: 85%;
+      border: none;
+      margin-bottom: 0;
+    }
+  
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
 }
 
 .actico {

@@ -8,13 +8,13 @@ const documents = [
   {
     name: 'Melon',
     purchased: true,
-    price: '$15',
+    price: '15',
     image: '/images/groceries/2.jpg',
   },
 
   {
     name: 'Water Melon',
-    price: '$82',
+    price: '82',
     purchased: false,
     image: '/images/groceries/1.jpg',
   },
@@ -22,14 +22,14 @@ const documents = [
   {
     name: 'Vegetables',
     purchased: true,
-    price: '$17',
+    price: '17',
     image: '/images/groceries/3.jpg',
   },
 
   {
     name: 'Tomatoes',
     purchased: false,
-    price: '$23',
+    price: '23',
     image: '/images/groceries/4.jpg',
   },
 ];

@@ -48,13 +48,16 @@ const ManageGrocery = ({
         Price &nbsp;
         <span style={{ color: 'red' }}>*</span>
       </label>
-      <input
-        type="text"
-        value={grocery.price}
-        name="price"
-        placeholder="Examples : $5, ₦50"
-        onChange={changeHandler}
-      />
+      <div className="price-group">
+        <span>$</span>
+
+        <input
+          type="number"
+          value={grocery.price}
+          name="price"
+          onChange={changeHandler}
+        />
+      </div>
     </div>
 
     <div className="fset">
